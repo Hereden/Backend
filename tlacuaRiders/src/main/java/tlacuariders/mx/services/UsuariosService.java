@@ -20,8 +20,6 @@ public class UsuariosService {
 	
 	public UsuariosModel saveUser(UsuariosModel user) {
 		return usuariosRepository.save(user);
-		
-		
 	}
 	
 	public boolean deleteUser(Integer id) {

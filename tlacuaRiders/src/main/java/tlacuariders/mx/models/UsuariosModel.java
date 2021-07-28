@@ -39,11 +39,11 @@ public class UsuariosModel {
 	@Column(nullable = false, length = 1)
 	private int genero;
 	
-	@Column(nullable = false)
-	private int codigo_postal;
-	//@ManyToOne(optional = false, cascade = CascadeType.ALL,
-	//		fetch = FetchType.EAGER)
-    //private CodigoPostalModel codigoPostal;
+	//@Column(nullable = false)
+	//private int codigo_postal;
+	@ManyToOne(optional = false, cascade = CascadeType.ALL,
+			fetch = FetchType.EAGER)
+    private CodigoPostalModel codigoPostal;
 
 	
 	
@@ -54,13 +54,19 @@ public class UsuariosModel {
 		return id;
 	}
 
-	public int getCodigo_postal() {
-		return codigo_postal;
+	
+
+	public CodigoPostalModel getCodigoPostal() {
+		return codigoPostal;
 	}
 
-	public void setCodigo_postal(int codigo_postal) {
-		this.codigo_postal = codigo_postal;
+
+
+	public void setCodigoPostal(CodigoPostalModel codigoPostal) {
+		this.codigoPostal = codigoPostal;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;
