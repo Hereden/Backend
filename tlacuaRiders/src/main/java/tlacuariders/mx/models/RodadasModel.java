@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +16,8 @@ public class RodadasModel {
 	@Column(nullable = false)
 	private int id;
 	
-	@Column(nullable = false)
-	private int usuario_id;
+	@ManyToOne
+	private UsuariosModel usuario;
 	
 	@Column(nullable = false, length = 255)
 	private String nombre;
@@ -59,12 +60,12 @@ public class RodadasModel {
 		this.id = id;
 	}
 
-	public int getUsuario_id() {
-		return usuario_id;
+	public UsuariosModel getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuario_id(int usuario_id) {
-		this.usuario_id = usuario_id;
+	public void setUsuario(UsuariosModel usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getNombre() {
@@ -154,6 +155,8 @@ public class RodadasModel {
 	public void setTurno(int turno) {
 		this.turno = turno;
 	}
+
+	
 	
 	
 }

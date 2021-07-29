@@ -5,26 +5,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="pedidos")
-public class PedidosModel {
+public class PedidosModel {	
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private int id;
-	
-	@Column(nullable = false)
-	private int num_pedido;
-	
-	@Column(nullable = false)
-	private int articulo_id;
 	
 	@Column(nullable = false)
 	private int cantidad;
 	
 	@Column(nullable = false)
 	private float precio_total;
+	
+	@ManyToOne
+	private ArticulosModel articulos;
+	
+	//@OneToMany(targetEntity = VentasModel.class)
+	//private VentasModel venta;
 
 	public int getId() {
 		return id;
@@ -32,22 +36,6 @@ public class PedidosModel {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getNum_pedido() {
-		return num_pedido;
-	}
-
-	public void setNum_pedido(int num_pedido) {
-		this.num_pedido = num_pedido;
-	}
-
-	public int getArticulo_id() {
-		return articulo_id;
-	}
-
-	public void setArticulo_id(int articulo_id) {
-		this.articulo_id = articulo_id;
 	}
 
 	public int getCantidad() {
@@ -65,6 +53,14 @@ public class PedidosModel {
 	public void setPrecio_total(float precio_total) {
 		this.precio_total = precio_total;
 	}
-	
+
+	public ArticulosModel getArticulos() {
+		return articulos;
+	}
+
+	public void setArticulos(ArticulosModel articulos) {
+		this.articulos = articulos;
+	}
+		
 	
 }

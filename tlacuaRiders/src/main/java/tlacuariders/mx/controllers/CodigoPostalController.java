@@ -1,5 +1,6 @@
 package tlacuariders.mx.controllers;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,20 @@ public class CodigoPostalController {
 	CodigoPostalService cpService;
 	
 	@PostMapping
-	public CodigoPostalModel saveCodigoPostal(@RequestBody CodigoPostalModel codigoPostal) {
-		return cpService.saveCodigoPostal(codigoPostal);
+	public CodigoPostalModel saveCodigoPostal(@RequestBody CodigoPostalModel codigo_postal) {
+		return cpService.saveCodigoPostal(codigo_postal);
 	}
 	
 	@GetMapping(path="/{id}")
 	public Optional<CodigoPostalModel> getCodigoPostalById(@PathVariable("id") Integer id){
 		return cpService.getCodigoPostalById(id);
 	}
+	
+	@GetMapping
+	public ArrayList<CodigoPostalModel> getCodigoPostalAll(){
+		return cpService.getCodigoPostalAll();
+	}
+	
 	
 	
 }

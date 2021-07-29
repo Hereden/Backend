@@ -1,9 +1,7 @@
 package tlacuariders.mx.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,32 +39,21 @@ public class UsuariosModel {
 	
 	//@Column(nullable = false)
 	//private int codigo_postal;
-	@ManyToOne(optional = false, cascade = CascadeType.ALL,
-			fetch = FetchType.EAGER)
-    private CodigoPostalModel codigoPostal;
+	@ManyToOne
+    private CodigoPostalModel codigo_postal;
 
 	
-	
-	
-	
-
 	public int getId() {
 		return id;
 	}
 
-	
-
-	public CodigoPostalModel getCodigoPostal() {
-		return codigoPostal;
+	public CodigoPostalModel getCodigo_postal() {
+		return codigo_postal;
 	}
 
-
-
-	public void setCodigoPostal(CodigoPostalModel codigoPostal) {
-		this.codigoPostal = codigoPostal;
+	public void setCodigo_postal(CodigoPostalModel codigo_postal) {
+		this.codigo_postal = codigo_postal;
 	}
-
-
 
 	public void setId(int id) {
 		this.id = id;

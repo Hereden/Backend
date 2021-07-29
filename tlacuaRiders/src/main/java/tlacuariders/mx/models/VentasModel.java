@@ -1,10 +1,13 @@
 package tlacuariders.mx.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,14 +19,24 @@ public class VentasModel {
 	@Column(nullable = false)
 	private int id;
 	
-	@Column(nullable = false)
-	private int usuario_id;
+	@ManyToOne
+	private UsuariosModel usuario;
 	
-	@Column(nullable = false)
-	private int num_pedido;
+	@ManyToOne
+	private List<PedidosModel> pedidos;
 	
 	@Column(nullable = false)
 	private float precio_total;
+	
+	
+
+	public List<PedidosModel> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<PedidosModel> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	public int getId() {
 		return id;
@@ -33,20 +46,14 @@ public class VentasModel {
 		this.id = id;
 	}
 
-	public int getUsuario_id() {
-		return usuario_id;
+	
+
+	public UsuariosModel getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuario_id(int usuario_id) {
-		this.usuario_id = usuario_id;
-	}
-
-	public int getNum_pedido() {
-		return num_pedido;
-	}
-
-	public void setNum_pedido(int num_pedido) {
-		this.num_pedido = num_pedido;
+	public void setUsuario(UsuariosModel usuario) {
+		this.usuario = usuario;
 	}
 
 	public float getPrecio_total() {
